@@ -22,6 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final JwtAuthenticationConfig jwtAuthenticationConfig;
+
     public SecurityConfig(JwtAuthenticationConfig jwtAuthenticationConfig) {
         this.jwtAuthenticationConfig = jwtAuthenticationConfig;
     }
