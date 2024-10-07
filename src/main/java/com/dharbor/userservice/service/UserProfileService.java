@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserProfileService {
 
     private final UserRepository userRepository;
+
     private final UserMapper userMapper;
 
     public UserProfileService(UserRepository userRepository, UserMapper userMapper) {
