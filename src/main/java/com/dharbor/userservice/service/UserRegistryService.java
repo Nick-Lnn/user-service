@@ -8,8 +8,6 @@ import com.dharbor.userservice.model.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 /**
  * @author Nicolas
  */
@@ -35,10 +33,14 @@ public class UserRegistryService {
 
         User user = userMapper.userRequestToUser(userRequest);
         user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
-        user.setAccountId(UUID.randomUUID().toString());
+        user.setAccountId(generateUniqueAccountId());
         user.setIsDeleted(false);
 
         User savedUser = userRepository.save(user);
         return userMapper.userToUserResponse(savedUser);
+    }
+
+    private Long generateUniqueAccountId() {
+        return System.currentTimeMillis();
     }
 }
