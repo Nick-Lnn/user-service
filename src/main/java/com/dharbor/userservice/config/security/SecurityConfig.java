@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/user-service/user", "/api/user-service/auth/login").permitAll()
-                        .requestMatchers("/api/user-service/user/**").authenticated()
+//                        .requestMatchers("/api/user-service/user/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
