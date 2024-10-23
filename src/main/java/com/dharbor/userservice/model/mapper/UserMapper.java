@@ -16,14 +16,10 @@ public interface UserMapper {
     @Mapping(target = "isDeleted", ignore = true)
     User userRequestToUser(UserRequest userRequest);
 
+    @Mapping(source = "id", target = "id")
     @Mapping(source = "username", target = "username")
     @Mapping(source = "accountId", target = "accountId")
     @Mapping(source = "firstName", target = "firstName")
     @Mapping(source = "lastName", target = "lastName")
     UserResponse userToUserResponse(User user);
-
-//    @Mapping(target = "id", ignore = true)
-//    @Mapping(target = "createdDate", ignore = true)
-//    @Mapping(target = "isDeleted", ignore = true)
-//    void updateUserFromUserRequest(UserRequest userRequest, @org.mapstruct.MappingTarget User user);
 }
